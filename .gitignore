@@ -4,3 +4,6 @@
 
 /webapp/.vs/webapp
 /webapp/.vs/ProjectEvaluation
+/webapp.Server/obj/debug/net8.0
+*~
+*.swp
