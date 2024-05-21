@@ -13,7 +13,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "inventory",
       "applicationUrl": "http://localhost:5274",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -24,7 +24,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "inventory",
       "applicationUrl": "https://localhost:7093;http://localhost:5274",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
