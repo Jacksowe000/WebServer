@@ -1,48 +1,45 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+
 function App() {
-    const [forecasts, setForecasts] = useState();
+    const [inventory, setInventory] = useState();
 
     useEffect(() => {
-        populateWeatherData();
+        populateInventory();
     }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
+    const contents = inventory === undefined
+        ? <p><em>Loading... FUCK</em></p>
+        :<table>
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
+                    <th> Name </th>
+                    <th> UPC </th>
+                    <th> Quantity </th>
                 </tr>
             </thead>
             <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
+                {inventory.map(item =>
+                    <tr key={item.name}>
+                        <td>{item.name}</td>
+                        <td>{item.upc}</td>
+                        <td>{item.quantity}</td>
                     </tr>
                 )}
             </tbody>
-        </table>;
-
+        </table> 
     return (
         <div>
-            <h1 id="tabelLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
+            <h1 id="tabelLabel">Inventory</h1>
             {contents}
         </div>
     );
     
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
+    async function populateInventory() {
+        const response = await fetch(`inventory`);
         const data = await response.json();
-        setForecasts(data);
+        setInventory(data);
     }
 }
 
