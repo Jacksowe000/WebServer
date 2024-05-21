@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zrlZMC+HWx347MKAGJoes6c4eS4f+cSbe3hBml8gTbDjJuoxigPN2VaVLvvyLzXJDdMSGWZlpxZ0XhXEK5Kygg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\oweng\\WebServer\\webapp\\webapp.Server\\webapp.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oweng\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.5\\microsoft.aspnetcore.spaproxy.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
