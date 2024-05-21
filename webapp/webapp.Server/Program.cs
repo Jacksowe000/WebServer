@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Components;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 namespace webapp.Server {
@@ -27,8 +28,10 @@ namespace webapp.Server {
 
             Console.WriteLine("Building");
             BuildAPIs();
-
+            
             LoadAPIS(app);
+
+            //app.MapFallback(() => JsonSerializer.Serialize(new Item { name = "fuck", quantity = 0, UPC=69}));
 
             app.MapFallbackToFile("/index.html");
 
@@ -53,8 +56,7 @@ namespace webapp.Server {
             APIs[new Tuple<string, Requests>("/inventory", Requests.Get)] = GetInventory;
         }
 
-        private static Item[] GetInventory(HttpContext context) {
-            Console.WriteLine("INVENTORY");
+        private static IEnumerable<Item> GetInventory(HttpContext context) {
             var inventory = Enumerable.Range(1, 5).Select(i =>
                     new Item {
                         name = "bacon",

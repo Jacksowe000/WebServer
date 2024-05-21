@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-export const HOST = 'localhost:7093'
 
 function App() {
     const [inventory, setInventory] = useState();
@@ -15,15 +14,9 @@ function App() {
         :<table>
             <thead>
                 <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        UPC
-                    </th>
-                    <th>
-                        Quantity
-                    </th>
+                    <th> Name </th>
+                    <th> UPC </th>
+                    <th> Quantity </th>
                 </tr>
             </thead>
             <tbody>
@@ -44,11 +37,8 @@ function App() {
     );
     
     async function populateInventory() {
-        console.log('fetching')
         const response = await fetch(`inventory`);
-        console.log(response.body)
         const data = await response.json();
-        console.log(data)
         setInventory(data);
     }
 }
