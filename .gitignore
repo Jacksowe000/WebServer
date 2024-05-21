@@ -7,3 +7,7 @@
 /webapp.Server/obj/debug/net8.0
 *~
 *.swp
+/webapp/webapp.Server/obj/Debug/net8.0/webapp.Server.AssemblyInfo.cs
+/webapp/webapp.Server/obj/Debug/net8.0/webapp.Server.AssemblyInfoInputs.cache
+/webapp/webapp.Server/obj/Debug/net8.0/webapp.Server.assets.cache
+/webapp/webapp.Server/obj/Debug/net8.0/webapp.Server.GeneratedMSBuildEditorConfig.editorconfig
