@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Add from './Add'
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 
     const contents = inventory === undefined
         ? <p><em>Loading... FUCK</em></p>
-        :<table>
+        :<><table>
             <thead>
                 <tr>
                     <th> Name </th>
@@ -28,7 +29,8 @@ function App() {
                     </tr>
                 )}
             </tbody>
-        </table> 
+    </table>
+    <Add/></>
     return (
         <div>
             <h1 id="tabelLabel">Inventory</h1>

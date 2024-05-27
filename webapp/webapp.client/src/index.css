@@ -54,6 +54,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#modalDialog{
+  background-color: #213547;
+  text-align: center;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
