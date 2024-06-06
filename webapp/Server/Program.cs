@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Http.Extensions;
 using System.Text.Json;
 using System.Text;
-using Microsoft.AspNetCore.Cors;
+using Server.Models;
+using Aspose.BarCode.BarCodeRecognition;
 
 namespace Server {
     public class Program {
@@ -70,7 +71,27 @@ namespace Server {
             APIs[new("/inventory", Requests.Get)] = GetInventory;
             APIs[new("/add", Requests.Post)] = AddItem;
             APIs[new("/test", Requests.Get)] = Test;
+            APIs[new("/barcode", Requests.Post)] = ReadBarcode;
         }
+
+        private static string ReadBarcode(HttpContext context) {
+            Console.WriteLine(context.Request.GetDisplayUrl());
+            var body = readBody(context);
+            var response = "{\"count\":0}";
+
+            var image = JsonSerializer.Deserialize<JsonImage>(body);
+
+            var reader = new BarCodeReader(image.GetBitmap(), DecodeType.Code39Extended);
+
+            Console.WriteLine(reader.ReadBarCodes().Length);
+
+            foreach(var code in reader.ReadBarCodes()) {
+                Console.WriteLine(code);
+            }
+
+            return response;
+        }
+  
 
         private static string readBody(HttpContext context) {
             using var reader = new StreamReader(context.Request.Body, Encoding.UTF8);
@@ -79,8 +100,6 @@ namespace Server {
         }
 
         private static void AddItem(HttpContext context) {
-            Console.WriteLine(context.Request.GetDisplayUrl());
-
             Console.WriteLine(context.Request.GetDisplayUrl());
             var text = readBody(context);
             Console.WriteLine($"{text}");

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Modal from './Modal'
 import HOST from './index'
+import Cam from './Cam'
 
 export default Add
 
@@ -17,6 +18,19 @@ function Add(){
             body:`{"name":"${name}","UPC":${upc},"quantity":${num}}` 
         })
     }
+
+    const barcodePost = async (img) => {
+        const splitArr = img.split(':')
+        const json = {
+            "data":`${splitArr[1].split(',')[1]}`,
+        }
+        await fetch(`${HOST}/barcode`, {
+            method: "POST",
+            headers:{"Content-Type": "application/json",
+            },
+            body:JSON.stringify(json)})
+    }
+
     return(
         <>
             <Modal buttonText='Add'>
@@ -41,6 +55,8 @@ function Add(){
                     </label>
                    <input type='button' onClick={onSubmit} value="Submit"/> 
                 </form>
+
+                <Cam frameMethod={barcodePost} buttonText='Scan Barcode'/>
             </Modal>
         </>        
     )
